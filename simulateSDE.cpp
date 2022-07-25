@@ -9,9 +9,8 @@
 
 using std::cout;
 using std::endl;
-// using std::vector;
 
-void checkVector(std::vector<double> vec){
+void SimulateSDE::checkVector(std::vector<double> vec){
     for (int i = 0; i < vec.size(); i++){
         cout << vec[i] << endl;
     }
@@ -24,7 +23,7 @@ Input:
 Output:
     vec : partition of time interval
 */
-std::vector<double> createTimeInterval(int n){
+std::vector<double> SimulateSDE::createTimeInterval(int n){
     
     std::vector<double> vec;
 
@@ -43,7 +42,7 @@ Input:
 Output:
     vec : Brownian differences
 */
-std::vector<double> _createBrownianDifferences(int n){
+std::vector<double> SimulateSDE::_createBrownianDifferences(int n){
     
     std::vector<double> vec;
 
@@ -70,7 +69,7 @@ Input:
 Output:
     sigma_func_value : value of the sigma function
 */
-double _sigmaFunc(double sigma, double gamma, double r){
+double SimulateSDE::_sigmaFunc(double sigma, double gamma, double r){
     double sigma_func_value = sigma * pow(r, gamma);
     return sigma_func_value;
 }
@@ -84,7 +83,7 @@ Input:
 Output:
     mu_func_value : value of the mu function
 */
-double _muFunc(double mu, double alpha, double r){
+double SimulateSDE::_muFunc(double mu, double alpha, double r){
     double mu_func_value = mu * (alpha - r);
     return mu_func_value;
 }
@@ -102,7 +101,7 @@ Input:
 Output:
     vec : the value of the SDE
 */
-std::vector<double> simulateEulerMaruyama(int n, double r_0, double mu, double alpha, double sigma, double gamma){
+std::vector<double> SimulateSDE::simulateEulerMaruyama(int n, double r_0, double mu, double alpha, double sigma, double gamma){
     
     // simulate the Brownian motion
     std::vector<double> brownian_diff_vec = _createBrownianDifferences(n);

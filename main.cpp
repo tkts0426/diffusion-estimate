@@ -9,7 +9,7 @@
 
 using std::cout;
 using std::endl;
-// using std::vector;
+using std::vector;
 
 int main()
 {
@@ -28,6 +28,8 @@ int main()
     std::vector<double> partition = calculateSDE.createTimeInterval(n);
     // simulate the SDE
     std::vector<double> price_process = calculateSDE.simulateEulerMaruyama(n, r_0, mu, alpha, sigma, gamma);
+
+    calculateSDE.checkVector(price_process);
 
     return 0;
 }
