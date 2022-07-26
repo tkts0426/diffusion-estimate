@@ -5,7 +5,7 @@
 #include <random>
 #include <fstream>
 
-#include "simulateSDE.hpp"
+#include "utils/simulateSDE.hpp"
 
 using std::cout;
 using std::endl;
@@ -29,7 +29,7 @@ int main()
     // simulate the SDE
     std::vector<double> price_process = calculateSDE.simulateEulerMaruyama(n, r_0, mu, alpha, sigma, gamma);
 
-    calculateSDE.checkVector(price_process);
+    // calculateSDE.checkVector(price_process);
 
     return 0;
 }
